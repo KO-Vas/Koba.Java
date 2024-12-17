@@ -1,0 +1,127 @@
+
+import java.util.Scanner;
+
+public class Main
+{
+ public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        int in;
+
+        while (true) {
+            System.out.println(
+                    "Выбирите задачу и напишите её номер: 1,2,3. Для выхода введите цифру - 0");
+            System.out.print("Задача: ");
+
+            if (scanner.hasNextInt()) {
+                in = scanner.nextInt();
+
+                if (in == 0) {
+                    System.out.println("Завершение программы.");
+                    scanner.close();
+                    System.exit(0);
+                }
+
+                if (in < 1 || in > 3) {
+                    System.out.println("Таких задач нет!");
+                } else {
+                    switch (in) {
+                        case 1:
+                            task1();
+                            break;
+                        case 2:
+                            task2();
+                            break;
+                        case 3:
+                            task3();
+                            break;
+                    }
+                }
+            } else {
+                System.out.println("Пожалуйста, введите корректное число!");
+                scanner.next();
+            }
+        }
+    }
+
+    public static void task1() {
+        Scanner scanner = new Scanner(System.in);
+        int a, b;
+
+        while (true) {
+            System.out.print("Введите число a: ");
+            if (scanner.hasNextInt()) {
+                a = scanner.nextInt();
+                break;
+            } else {
+                System.out.println("Пожалуйста, введите корректное число!");
+                scanner.next();
+            }
+        }
+
+        while (true) {
+            System.out.print("Введите число b: ");
+            if (scanner.hasNextInt()) {
+                b = scanner.nextInt();
+                break;
+            } else {
+                System.out.println("Пожалуйста, введите корректное число!");
+                scanner.next();
+            }
+        }
+
+        scanner.close();
+
+        if (a > b) {
+            System.out.println("a > b");
+        } else if (a < b) {
+            System.out.println("a < b");
+        } else {
+            System.out.println("a = b");
+        }
+        System.out.printf("a + b=%d\n", a + b);
+
+        System.out.printf("a - b=%d\n", a - b);
+
+        System.out.printf("a * b=%d\n", a * b);
+
+        if (b != 0) {
+            System.out.printf("a/b=%d\n", a / b);
+        } else {
+            System.out.println("На ноль делить нельзя");
+        }
+
+        System.exit(0);
+
+    }
+
+    public static void task2() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Введите первую строку: ");
+        String str1 = scanner.nextLine();
+
+        System.out.print("Введите вторую строку: ");
+        String str2 = scanner.nextLine();
+
+        scanner.close();
+
+        if (str1.equals(str2)) {
+            System.out.println("Строки идентичны");
+        } else {
+            System.out.println("Строки неидентичны");
+        }
+        System.exit(0);
+    }
+
+    public static void task3() {
+        int[] ints = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        System.out.println("Нечетные числа:");
+        for (int i = 0; i < ints.length; i++) {
+            if (ints[i] % 2 != 0) {
+                System.out.println(ints[i]);
+            }
+        }
+        System.exit(0);
+    }
+}
